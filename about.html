@@ -5,87 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos - BIOBRIX</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container navbar">
-            <div class="logo">
-                <img src="images/logo.png" alt="BIOBRIX Logo">
-                <span class="logo-text">BIOBRIX</span>
-            </div>
-            <nav class="nav-links">
-                <a href="index.html">Accueil</a>
-                <a href="shop.html">Boutique</a>
-                <a href="about.html" class="active">À propos</a>
-                <a href="commitment.html">Notre engagement</a>
-                <a href="contact.html">Contact</a>
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: bold; font-size: 1.4rem; color: #1b4332;">
+                <img src="images/logo.png" alt="BIOBRIX Logo" style="height: 40px; width: auto;">
+                <span>BIOBRIX</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="about.html" class="active">À propos</a></li>
+                    <li><a href="commitment.html">Notre engagement</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </nav>
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <a href="cart.html" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Panier</span>
-                    <span class="cart-badge">0</span>
-                </a>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
+            <a href="cart.html" class="cart-btn">🛒 Panier <span id="cart-count">0</span></a>
         </div>
     </header>
 
-    <main class="section">
+    <section class="section">
         <div class="container">
-            <h1 class="section-title">À propos de BIOBRIX</h1>
-            <p class="section-subtitle">Notre vision pour une transition énergétique durable en Algérie.</p>
+            <h1 class="text-center">À propos de BIOBRIX</h1>
+            <p class="text-center subtitle">Notre vision pour une transition énergétique durable en Algérie.</p>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; margin-top: 40px;">
+            <div class="grid-2" style="margin-top: 30px;">
                 <div class="card">
-                    <h3 style="color: var(--vert-fonce); margin-bottom: 15px; font-size: 1.3rem;">Notre Mission</h3>
-                    <p style="color: var(--gris-texte); line-height: 1.8; margin-bottom: 20px;">
-                        BIOBRIX est une startup innovante spécialisée dans la valorisation des déchets agricoles (notamment les noyaux de dattes et les résidus d'olives) pour fabriquer un charbon écologique de haute performance.
-                    </p>
-                    <p style="color: var(--gris-texte); line-height: 1.8;">
-                        Nous combinons l'ingénierie environnementale et l'économie circulaire pour offrir une alternative écoresponsable aux combustibles traditionnels.
-                    </p>
+                    <h3>Notre Mission</h3>
+                    <p>BIOBRIX est une startup innovante spécialisée dans la valorisation des déchets agricoles (notamment les noyaux de dattes et les résidus d'olives) pour fabriquer un charbon écologique de haute performance.</p>
+                    <p>Nous combinons l'ingénierie environnementale et l'économie circulaire pour offrir une alternative écoresponsable aux combustibles traditionnels.</p>
                 </div>
-                <div class="card" style="background-color: var(--vert-clair);">
-                    <h3 style="color: var(--vert-fonce); margin-bottom: 15px; font-size: 1.3rem;">Nos Valeurs</h3>
-                    <ul style="display: flex; flex-direction: column; gap: 12px; color: var(--gris-texte);">
-                        <li><i class="fas fa-check-circle" style="color: var(--vert-fonce);"></i> <strong>Durabilité :</strong> Préserver nos ressources naturelles et réduire les déchets.</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--vert-fonce);"></i> <strong>Innovation :</strong> Transformer les sous-produits agricoles en énergie.</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--vert-fonce);"></i> <strong>Ancrage Local :</strong> Mettre en valeur le potentiel agricole algérien.</li>
+                <div class="card">
+                    <h3>Nos Valeurs</h3>
+                    <ul class="feature-list">
+                        <li>✔ <strong>Durabilité :</strong> Préserver nos ressources naturelles et réduire les déchets.</li>
+                        <li>✔ <strong>Innovation :</strong> Transformer les sous-produits agricoles en énergie.</li>
+                        <li>✔ <strong>Ancrage Local :</strong> Mettre en valeur le potentiel agricole algérien.</li>
                     </ul>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>BIOBRIX</h4>
-                    <p>Des déchets naturels, une énergie nouvelle.</p>
+        <div class="container footer-grid">
+            <div>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <img src="images/logo.png" alt="BIOBRIX Logo" style="height: 36px; width: auto; background: white; border-radius: 6px; padding: 2px;">
+                    <h3 style="margin: 0;">BIOBRIX</h3>
                 </div>
-                <div class="footer-col">
-                    <h4>Liens rapides</h4>
-                    <a href="index.html">Accueil</a>
-                    <a href="shop.html">Boutique</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-envelope"></i> contact@biobrix-dz.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Skikda, Algérie</p>
-                </div>
+                <p>Des déchets naturels, une énergie nouvelle.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 BIOBRIX. Tous droits réservés.</p>
-                <div class="footer-legal">
-                    <a href="admin.html" style="color: var(--vert-secondaire);"><i class="fas fa-lock"></i> Admin</a>
-                </div>
+            <div>
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
+            <div>
+                <h4>Contact</h4>
+                <p>✉️ contact@biobrix-dz.com</p>
+                <p>📍 Tlemcen, Algérie</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 BIOBRIX. Tous droits réservés.</p>
         </div>
     </footer>
     <script src="js/app.js"></script>

@@ -4,176 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIOBRIX - Charbon alternatif naturel</title>
-    <!-- ربط ملف التصميم -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- مكتبة الأيقونات FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-    <!-- Header (شريط التنقل) -->
     <header>
         <div class="container navbar">
-            <div class="logo">
-                <img src="images/logo.png" alt="BIOBRIX Logo">
-                <span class="logo-text">BIOBRIX</span>
-            </div>
-            <nav class="nav-links">
-                <a href="index.html" class="active">Accueil</a>
-                <a href="shop.html">Boutique</a>
-                <a href="about.html">À propos</a>
-                <a href="commitment.html">Notre engagement</a>
-                <a href="contact.html">Contact</a>
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: bold; font-size: 1.4rem; color: #1b4332;">
+                <img src="images/logo.png" alt="BIOBRIX Logo" style="height: 40px; width: auto;">
+                <span>BIOBRIX</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="commitment.html">Notre engagement</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </nav>
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <a href="cart.html" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Panier</span>
-                    <span class="cart-badge">0</span>
-                </a>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
+            <a href="cart.html" class="cart-btn">🛒 Panier <span id="cart-count">0</span></a>
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="section" style="background: linear-gradient(rgba(27,94,53,0.85), rgba(27,94,53,0.85)), url('images/hero-bg.jpg') center/cover; color: white; text-align: center; padding: 100px 20px;">
-            <div class="container">
-                <h1 style="font-size: 2.8rem; margin-bottom: 20px; color: #FFFFFF;">Des déchets naturels, une énergie nouvelle.</h1>
-                <p style="font-size: 1.15rem; max-width: 750px; margin: 0 auto 30px auto; color: #F8F7F1;">
-                    BIOBRIX transforme les déchets agricoles, notamment les noyaux de dattes et les résidus d'olives, en charbon alternatif destiné au barbecue. Une nouvelle approche pour valoriser les ressources locales.
-                </p>
-                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                    <a href="shop.html" class="btn" style="background-color: #FFFFFF; color: #1B5E35; font-weight: 600;">Découvrir nos produits</a>
-                    <a href="commitment.html" class="btn btn-secondary" style="border-color: #FFFFFF; color: #FFFFFF;">Notre engagement écologique</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Présentation du produit -->
-        <section class="section">
-            <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
-                <div>
-                    <h2 class="section-title" style="text-align: left;">Découvrez BIOBRIX</h2>
-                    <p style="color: var(--gris-texte); margin-bottom: 20px;">
-                        Notre charbon écologique est le fruit d'une recherche rigoureuse visant à offrir une combustion performante et durable sans nuire à l'environnement.
-                    </p>
-                    <ul style="margin-bottom: 25px; display: flex; flex-direction: column; gap: 10px;">
-                        <li><i class="fas fa-check-circle" style="color: var(--vert-fonce);"></i> Matières premières d'origine agricole (noyaux de dattes, olives).</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--vert-fonce);"></i> Valorisation intelligente des déchets locaux.</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--vert-fonce);"></i> Fabrication locale en Algérie.</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--vert-fonce);"></i> Alternative écologique au charbon de bois traditionnel.</li>
-                    </ul>
-                    <a href="product.html" class="btn btn-primary">Voir le produit</a>
-                </div>
-                <div class="card" style="padding: 10px; text-align: center;">
-                    <img src="images/product-charcoal.jpg" alt="BIOBRIX Charbon" style="width: 100%; border-radius: 8px; object-fit: cover; max-height: 350px;">
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Nos Avantages -->
-        <section class="section" style="background-color: var(--vert-clair);">
-            <div class="container">
-                <h2 class="section-title">Pourquoi choisir BIOBRIX ?</h2>
-                <p class="section-subtitle">Les piliers de notre démarche innovante et durable.</p>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px;">
-                    <div class="card" style="text-align: center;">
-                        <i class="fas fa-recycle" style="font-size: 2.5rem; color: var(--vert-fonce); margin-bottom: 15px;"></i>
-                        <h3 style="margin-bottom: 10px; font-size: 1.1rem;">Économie Circulaire</h3>
-                        <p style="font-size: 0.9rem; color: var(--gris-texte);">Transformer les déchets agricoles en une ressource énergétique utile.</p>
-                    </div>
-                    <div class="card" style="text-align: center;">
-                        <i class="fas fa-map-marker-alt" style="font-size: 2.5rem; color: var(--vert-fonce); margin-bottom: 15px;"></i>
-                        <h3 style="margin-bottom: 10px; font-size: 1.1rem;">Ressources Locales</h3>
-                        <p style="font-size: 0.9rem; color: var(--gris-texte);">Exploiter les richesses naturelles de notre terroir algérien.</p>
-                    </div>
-                    <div class="card" style="text-align: center;">
-                        <i class="fas fa-leaf" style="font-size: 2.5rem; color: var(--vert-fonce); margin-bottom: 15px;"></i>
-                        <h3 style="margin-bottom: 10px; font-size: 1.1rem;">Innovation Écologique</h3>
-                        <p style="font-size: 0.9rem; color: var(--gris-texte);">Contribuer à réduire la dépendance au charbon issu du bois.</p>
-                    </div>
-                    <div class="card" style="text-align: center;">
-                        <i class="fas fa-shopping-bag" style="font-size: 2.5rem; color: var(--vert-fonce); margin-bottom: 15px;"></i>
-                        <h3 style="margin-bottom: 10px; font-size: 1.1rem;">Achat Simple</h3>
-                        <p style="font-size: 0.9rem; color: var(--gris-texte);">Commandez directement en ligne en quelques clics.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Engagement Écologique -->
-        <section class="section">
-            <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
-                <div class="card" style="padding: 10px; text-align: center;">
-                    <img src="images/forest.jpg" alt="Engagement écologique" style="width: 100%; border-radius: 8px; object-fit: cover; max-height: 350px;">
-                </div>
-                <div>
-                    <h2 class="section-title" style="text-align: left;">Un achat, un arbre pour demain</h2>
-                    <p style="color: var(--gris-texte); margin-bottom: 20px;">
-                        Chez BIOBRIX, nous souhaitons contribuer à un avenir plus vert. À travers notre engagement écologique, nous ambitionnons de soutenir des projets de plantation d'arbres et de participer à la préservation de notre environnement.
-                    </p>
-                    <a href="commitment.html" class="btn btn-secondary">Découvrir notre engagement</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Call To Action -->
-        <section class="section" style="background-color: var(--vert-fonce); color: white; text-align: center;">
-            <div class="container">
-                <h2 style="font-size: 2.2rem; margin-bottom: 15px; color: #FFFFFF;">Faites partie du changement !</h2>
-                <p style="max-width: 600px; margin: 0 auto 30px auto; color: #E8F0E5;">Découvrez une nouvelle manière de valoriser les ressources naturelles.</p>
-                <a href="shop.html" class="btn" style="background-color: #FFFFFF; color: #1B5E35; font-weight: 600;">Commander maintenant</a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
+    <section class="hero">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>BIOBRIX</h4>
-                    <p>Des déchets naturels, une énergie nouvelle. Valorisation des noyaux de dattes et résidus d'olives en charbon écologique.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Liens rapides</h4>
-                    <a href="index.html">Accueil</a>
-                    <a href="shop.html">Boutique</a>
-                    <a href="about.html">À propos</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-envelope"></i> contact@biobrix-dz.com</p>
-                    <p><i class="fas fa-phone"></i> +213 (0) XX XX XX XX</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Skikda, Algérie</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Réseaux sociaux</h4>
-                    <div style="display: flex; gap: 15px; font-size: 1.2rem; margin-top: 10px;">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
+            <h1>Des déchets naturels, une énergie nouvelle.</h1>
+            <p>BIOBRIX transforme les déchets agricoles, notamment les noyaux de dattes et les résidus d'olives, en charbon alternatif destiné au barbecue. Une nouvelle approche pour valoriser les ressources locales.</p>
+            <div class="hero-btns">
+                <a href="shop.html" class="btn btn-primary">Découvrir nos produits</a>
+                <a href="commitment.html" class="btn btn-outline">Notre engagement écologique</a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 BIOBRIX. Tous droits réservés.</p>
-                <div class="footer-legal">
-                    <a href="#">Politique de confidentialité</a>
-                    <a href="#">Conditions générales de vente</a>
-                    <a href="admin.html" style="color: var(--vert-secondaire);"><i class="fas fa-lock"></i> Admin</a>
+        </div>
+    </section>
+
+    <section class="about-preview section">
+        <div class="container grid-2">
+            <div>
+                <h2>Découvrez BIOBRIX</h2>
+                <p>Notre charbon écologique est le fruit d'une recherche rigoureuse visant à offrir une combustion performante et durable sans nuire à l'environnement.</p>
+                <ul class="feature-list">
+                    <li>✔ Matières premières d'origine agricole (noyaux de dattes, olives).</li>
+                    <li>✔ Valorisation intelligente des déchets locaux.</li>
+                    <li>✔ Fabrication locale en Algérie.</li>
+                    <li>✔ Alternative écologique au charbon de bois traditionnel.</li>
+                </ul>
+                <a href="shop.html" class="btn btn-primary">Voir le produit</a>
+            </div>
+            <div class="image-box" style="background: #f4f7f5; border-radius: 12px; padding: 20px; display: flex; justify-content: center; align-items: center;">
+                <img src="images/_charcoal-close.png" alt="BIOBRIX Charbon" style="max-height: 250px; width: auto; border-radius: 8px;">
+            </div>
+        </div>
+    </section>
+
+    <section class="pillars section bg-light">
+        <div class="container">
+            <h2 class="text-center">Pourquoi choisir BIOBRIX ?</h2>
+            <p class="text-center subtitle">Les piliers de notre démarche innovante et durable.</p>
+            <div class="grid-4">
+                <div class="card text-center">
+                    <div style="margin-bottom: 15px; display: flex; justify-content: center;">
+                        <img src="images/_circular-economy.png" alt="Économie Circulaire" style="height: 70px; width: auto; object-fit: contain;">
+                    </div>
+                    <h3>Économie Circulaire</h3>
+                    <p>Transformer les déchets agricoles en une ressource énergétique utile.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="icon" style="font-size: 3rem;">📍</div>
+                    <h3>Ressources Locales</h3>
+                    <p>Exploiter les richesses naturelles de notre terroir algérien.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="icon" style="font-size: 3rem;">🌿</div>
+                    <h3>Innovation écologique</h3>
+                    <p>Contribuer à réduire la dépendance au charbon issu du bois.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="icon" style="font-size: 3rem;">🛍️</div>
+                    <h3>Achat Simple</h3>
+                    <p>Commandez directement en ligne en quelques clics.</p>
                 </div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <!-- ربط ملف الجافاسكريبت -->
+    <section class="commitment-preview section">
+        <div class="container grid-2">
+            <div class="image-box" style="background: #f4f7f5; border-radius: 12px; padding: 20px; display: flex; justify-content: center; align-items: center;">
+                <img src="images/_eco-impact.png" alt="Engagement écologique" style="max-height: 250px; width: auto; border-radius: 8px;">
+            </div>
+            <div>
+                <h2>Un achat, un arbre pour demain</h2>
+                <p>Chez BIOBRIX, nous souhaitons contribuer à un avenir plus vert. À travers notre engagement écologique, nous ambitionnons de soutenir des projets de plantation d'arbres et de participer à la préservation de notre environnement.</p>
+                <a href="commitment.html" class="btn btn-outline-dark">Découvrir notre engagement</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container text-center">
+            <h2>Faites partie du changement !</h2>
+            <p>Découvrez une nouvelle manière de valoriser les ressources naturelles.</p>
+            <a href="shop.html" class="btn btn-primary">Commander maintenant</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <img src="images/logo.png" alt="BIOBRIX Logo" style="height: 36px; width: auto; background: white; border-radius: 6px; padding: 2px;">
+                    <h3 style="margin: 0;">BIOBRIX</h3>
+                </div>
+                <p>Des déchets naturels, une énergie nouvelle. Valorisation des noyaux de dattes et résidus d'olives en charbon écologique.</p>
+            </div>
+            <div>
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>✉️ contact@biobrix-dz.com</p>
+                <p>📞 +213 (0) XX XX XX XX</p>
+                <p>📍 Tlemcen, Algérie</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 BIOBRIX. Tous droits réservés.</p>
+        </div>
+    </footer>
     <script src="js/app.js"></script>
 </body>
 </html>

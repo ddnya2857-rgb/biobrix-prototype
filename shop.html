@@ -5,102 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boutique - BIOBRIX</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-    <!-- Header -->
     <header>
         <div class="container navbar">
-            <div class="logo">
-                <img src="images/logo.png" alt="BIOBRIX Logo">
-                <span class="logo-text">BIOBRIX</span>
-            </div>
-            <nav class="nav-links">
-                <a href="index.html">Accueil</a>
-                <a href="shop.html" class="active">Boutique</a>
-                <a href="about.html">À propos</a>
-                <a href="commitment.html">Notre engagement</a>
-                <a href="contact.html">Contact</a>
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: bold; font-size: 1.4rem; color: #1b4332;">
+                <img src="images/logo.png" alt="BIOBRIX Logo" style="height: 40px; width: auto;">
+                <span>BIOBRIX</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html" class="active">Boutique</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="commitment.html">Notre engagement</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </nav>
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <a href="cart.html" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Panier</span>
-                    <span class="cart-badge">0</span>
-                </a>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
+            <a href="cart.html" class="cart-btn">🛒 Panier <span id="cart-count">0</span></a>
         </div>
     </header>
 
-    <main class="section">
+    <section class="section">
         <div class="container">
-            <h1 class="section-title">Notre boutique</h1>
-            <p class="section-subtitle">Découvrez notre charbon alternatif issu de la valorisation des déchets agricoles.</p>
+            <h1 class="text-center">Notre boutique</h1>
+            <p class="text-center subtitle">Découvrez notre charbon alternatif issu de la valorisation des déchets agricoles.</p>
 
-            <!-- حاوية عرض المنتجات ديناميكياً من JavaScript -->
-            <div id="products-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px;">
-                <!-- سيتم تعبئة المنتجات هنا تلقائياً -->
+            <div class="product-card" style="max-width: 400px; margin: 40px auto; background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                <div style="background: #f4f7f5; border-radius: 8px; padding: 20px; text-align: center; margin-bottom: 20px; height: 250px; display: flex; justify-content: center; align-items: center;">
+                    <img src="images/_product-3kg.png" alt="BIOBRIX - Charbon écologique" style="max-height: 220px; width: auto; border-radius: 8px; object-fit: contain;">
+                </div>
+                <h3>BIOBRIX – Charbon écologique pour barbecue</h3>
+                <p>Charbon naturel haute performance issu de la valorisation des noyaux de dattes et résidus d'olives.</p>
+                <p><strong>Conditionnement :</strong> 3 kg</p>
+                <p class="price" style="font-size: 1.6rem; font-weight: bold; color: #1b4332; margin: 15px 0;">650 DA</p>
+                <div class="grid-2" style="gap: 15px;">
+                    <a href="product.html" class="btn btn-outline-dark text-center">Voir</a>
+                    <button onclick="addToCart('biobrix-3kg', 'BIOBRIX – Charbon écologique (3 kg)', 650)" class="btn btn-primary">Ajouter</button>
+                </div>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>BIOBRIX</h4>
-                    <p>Des déchets naturels, une énergie nouvelle.</p>
+        <div class="container footer-grid">
+            <div>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <img src="images/logo.png" alt="BIOBRIX Logo" style="height: 36px; width: auto; background: white; border-radius: 6px; padding: 2px;">
+                    <h3 style="margin: 0;">BIOBRIX</h3>
                 </div>
-                <div class="footer-col">
-                    <h4>Liens rapides</h4>
-                    <a href="index.html">Accueil</a>
-                    <a href="shop.html">Boutique</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-envelope"></i> contact@biobrix-dz.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Skikda, Algérie</p>
-                </div>
+                <p>Des déchets naturels, une énergie nouvelle.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 BIOBRIX. Tous droits réservés.</p>
-                <div class="footer-legal">
-                    <a href="admin.html" style="color: var(--vert-secondaire);"><i class="fas fa-lock"></i> Admin</a>
-                </div>
+            <div>
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
+            <div>
+                <h4>Contact</h4>
+                <p>✉️ contact@biobrix-dz.com</p>
+                <p>📍 Tlemcen, Algérie</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 BIOBRIX. Tous droits réservés.</p>
         </div>
     </footer>
-
     <script src="js/app.js"></script>
-    <script>
-        // عرض المنتجات في صفحة المتجر
-        document.addEventListener('DOMContentLoaded', () => {
-            const productsGrid = document.getElementById('products-grid');
-            const products = getProducts();
-
-            productsGrid.innerHTML = products.map(product => `
-                <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--vert-fonce);">${product.name}</h3>
-                        <p style="font-size: 0.9rem; color: var(--gris-texte); margin-bottom: 15px;">${product.shortDesc}</p>
-                        <p style="font-size: 0.85rem; font-weight: 600; color: var(--noir-charbon); margin-bottom: 5px;">Conditionnement : ${product.weight}</p>
-                        <p style="font-size: 1.3rem; font-weight: 700; color: var(--vert-fonce); margin-bottom: 20px;">${product.price} DA</p>
-                    </div>
-                    <div style="display: flex; gap: 10px;">
-                        <a href="product.html?id=${product.id}" class="btn btn-secondary" style="flex: 1; padding: 10px; font-size: 0.85rem; text-align: center;">Voir</a>
-                        <button onclick="addToCart('${product.id}')" class="btn btn-primary" style="flex: 1; padding: 10px; font-size: 0.85rem;">Ajouter</button>
-                    </div>
-                </div>
-            `).join('');
-        });
-    </script>
 </body>
 </html>
 

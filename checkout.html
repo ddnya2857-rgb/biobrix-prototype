@@ -3,150 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commander - BIOBRIX</title>
+    <title>Validation de commande - BIOBRIX</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-    <!-- Header -->
     <header>
         <div class="container navbar">
-            <div class="logo">
-                <img src="images/logo.png" alt="BIOBRIX Logo">
-                <span class="logo-text">BIOBRIX</span>
-            </div>
-            <nav class="nav-links">
-                <a href="index.html">Accueil</a>
-                <a href="shop.html">Boutique</a>
-                <a href="about.html">À propos</a>
-                <a href="commitment.html">Notre engagement</a>
-                <a href="contact.html">Contact</a>
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: bold; font-size: 1.4rem; color: #1b4332;">
+                <img src="images/logo.png" alt="BIOBRIX Logo" style="height: 40px; width: auto;">
+                <span>BIOBRIX</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="commitment.html">Notre engagement</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </nav>
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <a href="cart.html" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Panier</span>
-                    <span class="cart-badge">0</span>
-                </a>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
+            <a href="cart.html" class="cart-btn">🛒 Panier <span id="cart-count">0</span></a>
         </div>
     </header>
 
-    <main class="section">
-        <div class="container">
-            <h1 class="section-title">Validation de la commande</h1>
-            <p class="section-subtitle">Veuillez renseigner vos coordonnées pour finaliser votre commande.</p>
+    <section class="section">
+        <div class="container" style="max-width: 650px;">
+            <h1>Finaliser votre commande</h1>
+            <form id="checkout-form" class="card" style="margin-top: 20px;">
+                <div class="form-group">
+                    <label>Nom complet</label>
+                    <input type="text" id="customer-name" required placeholder="Ex: Ahmed Benali">
+                </div>
+                <div class="form-group">
+                    <label>Numéro de téléphone</label>
+                    <input type="tel" id="customer-phone" required placeholder="Ex: 0550 XX XX XX">
+                </div>
+                <div class="form-group">
+                    <label>Wilaya</label>
+                    <input type="text" id="customer-wilaya" required placeholder="Ex: Tlemcen, Alger, Oran...">
+                </div>
+                <div class="form-group">
+                    <label>Adresse de livraison</label>
+                    <textarea id="customer-address" rows="3" required placeholder="Votre adresse complète"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Mode de paiement</label>
+                    <select id="payment-method">
+                        <option value="Paiement à la livraison">Paiement à la livraison (Cash on Delivery)</option>
+                        <option value="BaridiMob / CCP">Virement BaridiMob / CCP</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Confirmer la commande</button>
+            </form>
+        </div>
+    </section>
 
-            <div style="max-width: 700px; margin: 0 auto;">
-                <form id="checkout-form" class="card" style="display: flex; flex-direction: column; gap: 20px;">
-                    <div>
-                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Nom et Prénom</label>
-                        <input type="text" id="fullname" required placeholder="Ex: Mohamed Benali" style="width: 100%; padding: 12px; border: 1px solid var(--bordure); border-radius: 8px; font-family: 'Inter', sans-serif;">
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div>
-                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">Téléphone</label>
-                            <input type="tel" id="phone" required placeholder="Ex: 06XXXXXXXX" style="width: 100%; padding: 12px; border: 1px solid var(--bordure); border-radius: 8px; font-family: 'Inter', sans-serif;">
-                        </div>
-                        <div>
-                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">Wilaya</label>
-                            <select id="wilaya" style="width: 100%; padding: 12px; border: 1px solid var(--bordure); border-radius: 8px; font-family: 'Inter', sans-serif; background-color: white;">
-                                <option value="Skikda">Skikda</option>
-                                <option value="Annaba">Annaba</option>
-                                <option value="Constantine">Constantine</option>
-                                <option value="Alger">Alger</option>
-                                <option value="Autre">Autre wilaya</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Adresse de livraison exacte</label>
-                        <textarea id="address" required rows="3" placeholder="Commune, rue, repère..." style="width: 100%; padding: 12px; border: 1px solid var(--bordure); border-radius: 8px; font-family: 'Inter', sans-serif;"></textarea>
-                    </div>
-
-                    <div style="background-color: var(--vert-clair); padding: 15px; border-radius: 8px;">
-                        <h4 style="color: var(--vert-fonce); margin-bottom: 5px;">Mode de paiement</h4>
-                        <p style="font-size: 0.9rem; color: var(--gris-texte);">Paiement à la livraison (Espèces lors de la réception de votre commande).</p>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" style="padding: 14px; font-size: 1rem; width: 100%;">Confirmer la commande</button>
-                </form>
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <img src="images/logo.png" alt="BIOBRIX Logo" style="height: 36px; width: auto; background: white; border-radius: 6px; padding: 2px;">
+                    <h3 style="margin: 0;">BIOBRIX</h3>
+                </div>
+                <p>Des déchets naturels, une énergie nouvelle.</p>
+            </div>
+            <div>
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>✉️ contact@biobrix-dz.com</p>
+                <p>📍 Tlemcen, Algérie</p>
             </div>
         </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>BIOBRIX</h4>
-                    <p>Des déchets naturels, une énergie nouvelle.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Liens rapides</h4>
-                    <a href="index.html">Accueil</a>
-                    <a href="shop.html">Boutique</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-envelope"></i> contact@biobrix-dz.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Skikda, Algérie</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 BIOBRIX. Tous droits réservés.</p>
-                <div class="footer-legal">
-                    <a href="admin.html" style="color: var(--vert-secondaire);"><i class="fas fa-lock"></i> Admin</a>
-                </div>
-            </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 BIOBRIX. Tous droits réservés.</p>
         </div>
     </footer>
-
     <script src="js/app.js"></script>
-    <script>
-        document.getElementById('checkout-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const cart = getCart();
-            if (cart.length === 0) {
-                alert('Votre panier est vide !');
-                window.location.href = 'shop.html';
-                return;
-            }
-
-            const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
-            const newOrder = {
-                id: 'ORD-' + Math.floor(100000 + Math.random() * 900000),
-                date: new Date().toLocaleDateString('fr-FR'),
-                customer: {
-                    fullname: document.getElementById('fullname').value,
-                    phone: document.getElementById('phone').value,
-                    wilaya: document.getElementById('wilaya').value,
-                    address: document.getElementById('address').value
-                },
-                items: cart,
-                total: totalAmount,
-                status: 'En attente'
-            };
-
-            let orders = JSON.parse(localStorage.getItem('biobrix_orders')) || [];
-            orders.push(newOrder);
-            localStorage.setItem('biobrix_orders', JSON.stringify(orders));
-
-            // تفريغ السلة بعد إتمام الطلب
-            localStorage.setItem('biobrix_cart', JSON.stringify([]));
-
-            alert('Commande validée avec succès ! Référence : ' + newOrder.id);
-            window.location.href = 'index.html';
-        });
-    </script>
 </body>
 </html>
 

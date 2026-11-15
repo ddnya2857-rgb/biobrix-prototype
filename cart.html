@@ -3,161 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Panier - BIOBRIX</title>
+    <title>Panier - BIOBRIX</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-    <!-- Header -->
     <header>
         <div class="container navbar">
-            <div class="logo">
-                <img src="images/logo.png" alt="BIOBRIX Logo">
-                <span class="logo-text">BIOBRIX</span>
-            </div>
-            <nav class="nav-links">
-                <a href="index.html">Accueil</a>
-                <a href="shop.html">Boutique</a>
-                <a href="about.html">À propos</a>
-                <a href="commitment.html">Notre engagement</a>
-                <a href="contact.html">Contact</a>
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: bold; font-size: 1.4rem; color: #1b4332;">
+                <img src="images/logo.png" alt="BIOBRIX Logo" style="height: 40px; width: auto;">
+                <span>BIOBRIX</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="commitment.html">Notre engagement</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </nav>
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <a href="cart.html" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Panier</span>
-                    <span class="cart-badge">0</span>
-                </a>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
+            <a href="cart.html" class="cart-btn active">🛒 Panier <span id="cart-count">0</span></a>
         </div>
     </header>
 
-    <main class="section">
+    <section class="section">
         <div class="container">
-            <h1 class="section-title">Votre Panier</h1>
-            <p class="section-subtitle">Vérifiez vos articles avant de procéder à la commande.</p>
-
-            <div id="cart-content" style="margin-top: 30px;">
-                <!-- سيتم تعبئة محتوى السلة ديناميكياً هنا -->
+            <h1>Votre Panier</h1>
+            <div id="cart-items" style="margin-top: 20px;"></div>
+            <div class="cart-summary card" style="margin-top: 20px; text-align: right;">
+                <h3>Total : <span id="cart-total">0</span> DA</h3>
+                <a href="checkout.html" id="checkout-btn" class="btn btn-primary" style="margin-top: 15px; display: inline-block;">Passer la commande</a>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>BIOBRIX</h4>
-                    <p>Des déchets naturels, une énergie nouvelle.</p>
+        <div class="container footer-grid">
+            <div>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <img src="images/logo.png" alt="BIOBRIX Logo" style="height: 36px; width: auto; background: white; border-radius: 6px; padding: 2px;">
+                    <h3 style="margin: 0;">BIOBRIX</h3>
                 </div>
-                <div class="footer-col">
-                    <h4>Liens rapides</h4>
-                    <a href="index.html">Accueil</a>
-                    <a href="shop.html">Boutique</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-envelope"></i> contact@biobrix-dz.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Skikda, Algérie</p>
-                </div>
+                <p>Des déchets naturels, une énergie nouvelle.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 BIOBRIX. Tous droits réservés.</p>
-                <div class="footer-legal">
-                    <a href="admin.html" style="color: var(--vert-secondaire);"><i class="fas fa-lock"></i> Admin</a>
-                </div>
+            <div>
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
+            <div>
+                <h4>Contact</h4>
+                <p>✉️ contact@biobrix-dz.com</p>
+                <p>📍 Tlemcen, Algérie</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 BIOBRIX. Tous droits réservés.</p>
         </div>
     </footer>
-
     <script src="js/app.js"></script>
-    <script>
-        function renderCart() {
-            const cart = getCart();
-            const container = document.getElementById('cart-content');
-
-            if (cart.length === 0) {
-                container.innerHTML = `
-                    <div class="card" style="text-align: center; padding: 50px 20px;">
-                        <i class="fas fa-shopping-cart" style="font-size: 3rem; color: var(--gris-texte); margin-bottom: 20px;"></i>
-                        <h3 style="margin-bottom: 15px; color: var(--vert-fonce);">Votre panier est vide</h3>
-                        <p style="color: var(--gris-texte); margin-bottom: 25px;">Vous n'avez pas encore ajouté de produits à votre panier.</p>
-                        <a href="shop.html" class="btn btn-primary">Découvrir la boutique</a>
-                    </div>
-                `;
-                return;
-            }
-
-            let subtotal = 0;
-            let itemsHtml = cart.map((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                subtotal += itemTotal;
-                return `
-                    <div class="card" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; flex-wrap: wrap; gap: 15px;">
-                        <div style="display: flex; align-items: center; gap: 15px;">
-                            <img src="${item.image}" alt="${item.name}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 8px;">
-                            <div>
-                                <h4 style="font-size: 1.05rem; color: var(--vert-fonce); margin-bottom: 5px;">${item.name}</h4>
-                                <p style="font-size: 0.85rem; color: var(--gris-texte);">Conditionnement : ${item.weight}</p>
-                                <p style="font-size: 0.9rem; font-weight: 600; color: var(--noir-charbon);">${item.price} DA</p>
-                            </div>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 15px;">
-                            <input type="number" min="1" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)" style="width: 60px; padding: 8px; border: 1px solid var(--bordure); border-radius: 6px; text-align: center;">
-                            <span style="font-weight: 700; color: var(--vert-fonce); min-width: 90px; text-align: right;">${itemTotal} DA</span>
-                            <button onclick="removeItem(${index})" style="background: none; border: none; color: #d9534f; cursor: pointer; font-size: 1.1rem;"><i class="fas fa-trash"></i></button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            container.innerHTML = `
-                <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
-                    <div>${itemsHtml}</div>
-                    <div class="card" style="background-color: var(--vert-clair); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-                        <div>
-                            <h3 style="color: var(--vert-fonce); margin-bottom: 5px;">Total de la commande</h3>
-                            <p style="font-size: 0.9rem; color: var(--gris-texte);">Frais de livraison calculés à l'étape suivante.</p>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 20px;">
-                            <span style="font-size: 1.8rem; font-weight: 700; color: var(--vert-fonce);">${subtotal} DA</span>
-                            <a href="checkout.html" class="btn btn-primary">Passer la commande</a>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function updateQuantity(index, newQty) {
-            let cart = getCart();
-            if (newQty > 0) {
-                cart[index].quantity = parseInt(newQty);
-            } else {
-                cart.splice(index, 1);
-            }
-            localStorage.setItem('biobrix_cart', JSON.stringify(cart));
-            renderCart();
-            updateCartBadge();
-        }
-
-        function removeItem(index) {
-            let cart = getCart();
-            cart.splice(index, 1);
-            localStorage.setItem('biobrix_cart', JSON.stringify(cart));
-            renderCart();
-            updateCartBadge();
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCart();
-        });
-    </script>
 </body>
 </html>
 
