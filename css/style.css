@@ -1,4 +1,3 @@
-/* تنسيقات عامة عصرية */
 :root {
     --primary-color: #1b4332;
     --primary-light: #2d6a4f;
@@ -23,7 +22,6 @@ body {
     margin: 0 auto;
 }
 
-/* شريط التنقل (Navbar) */
 header {
     background: var(--white);
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -67,7 +65,6 @@ header {
     font-weight: 600;
 }
 
-/* قسم البطل (Hero Section) */
 .hero {
     background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(27, 67, 50, 0.85)), url('../images/charcoal.png');
     background-size: cover;
@@ -95,7 +92,6 @@ header {
     gap: 15px;
 }
 
-/* الأزرار */
 .btn {
     display: inline-block;
     padding: 12px 25px;
@@ -138,7 +134,6 @@ header {
     color: var(--white);
 }
 
-/* الأقسام والشبكات */
 .section {
     padding: 60px 0;
 }
@@ -152,12 +147,6 @@ header {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: center;
-}
-
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
 }
 
 .grid-4 {
@@ -187,7 +176,6 @@ header {
     margin-bottom: 40px;
 }
 
-/* قائمة المميزات */
 .feature-list {
     list-style: none;
     padding: 0;
@@ -199,7 +187,6 @@ header {
     font-weight: 500;
 }
 
-/* التذييل (Footer) */
 footer {
     background: #0f241b;
     color: var(--white);
@@ -243,9 +230,8 @@ footer {
     color: #aaa;
 }
 
-/* استجابة الشاشات الصغيرة */
 @media (max-width: 768px) {
-    .grid-2, .grid-3, .grid-4, .footer-grid {
+    .grid-2, .grid-4, .footer-grid {
         grid-template-columns: 1fr;
     }
     .hero h1 {
