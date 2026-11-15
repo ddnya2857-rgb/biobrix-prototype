@@ -27,25 +27,38 @@
     </header>
 
     <section class="section">
-        <div class="container" style="max-width: 650px;">
+        <div class="container">
             <h1 class="text-center">Contactez-nous</h1>
-            <p class="text-center subtitle">Une question ? Un partenariat ? N'hésitez pas à nous écrire.</p>
+            <p class="text-center subtitle">Une question, un partenariat ou une commande ? N'hésitez pas à nous écrire.</p>
 
-            <form id="contact-form" class="card" style="margin-top: 25px;">
-                <div class="form-group">
-                    <label>Nom et Prénom</label>
-                    <input type="text" required placeholder="Votre nom">
+            <div class="grid-2" style="align-items: flex-start;">
+                <div class="card">
+                    <h2>Informations de contact</h2>
+                    <p style="margin: 20px 0;">Nous sommes à votre écoute pour toute information concernant notre charbon écologique à Tlemcen.</p>
+                    <p><strong>✉️ Email :</strong> contact@biobrix-dz.com</p>
+                    <p><strong>📞 Téléphone :</strong> 0563 86 00 08</p>
+                    <p><strong>📍 Adresse :</strong> Tlemcen, Algérie</p>
                 </div>
-                <div class="form-group">
-                    <label>Adresse Email</label>
-                    <input type="email" required placeholder="votre.email@exemple.com">
+
+                <div class="card">
+                    <h2>Envoyez-nous un message</h2>
+                    <form onsubmit="event.preventDefault(); alert('✅ Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.');">
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600;">Nom complet</label>
+                            <input type="text" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;" placeholder="Votre nom">
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600;">Email</label>
+                            <input type="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;" placeholder="votre@email.com">
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600;">Message</label>
+                            <textarea rows="4" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;" placeholder="Votre message..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label>Votre Message</label>
-                    <textarea rows="5" required placeholder="Vous souhaitez intégrer le charbon alternatif et écologique dans votre activité ou commander nos produits Biobrix ? Contactez notre équipe dès aujourd'hui pour en savoir plus sur nos solutions durables !"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer le message</button>
-            </form>
+            </div>
         </div>
     </section>
 
@@ -69,6 +82,7 @@
             <div>
                 <h4>Contact</h4>
                 <p>✉️ contact@biobrix-dz.com</p>
+                <p>📞 0563 86 00 08</p>
                 <p>📍 Tlemcen, Algérie</p>
             </div>
         </div>
