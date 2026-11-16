@@ -43,7 +43,7 @@
     <!-- سكربتات Firebase لجلب وعرض الطلبات الحية -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
         // إعدادات مشروعك على Firebase
         const firebaseConfig = {
@@ -58,5 +58,58 @@
 
         // تهيئة Firebase
         const app = initializeApp(firebaseConfig);
-        const db
+        const db = getFirestore(app);
+
+        async function loadOrders() {
+            const ordersContainer = document.getElementById('orders-list');
+            
+            try {
+                const querySnapshot = await getDocs(collection(db, "orders"));
+                
+                if (querySnapshot.empty) {
+                    ordersContainer.innerHTML = `<div class="card" style="padding: 20px; background: #fff; border-radius: 8px; text-align: center; color: #666;">Aucune commande pour le moment.</div>`;
+                    return;
+                }
+
+                let orders = [];
+                querySnapshot.forEach((doc) => {
+                    orders.push({ id: doc.id, ...doc.data() });
+                });
+                
+                // ترتيب الطلبات من الأحدث للأقدم برمجياً
+                orders.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+
+                let ordersHTML = `<div style="display: grid; gap: 15px;">`;
+                
+                orders.forEach((order) => {
+                    const dateFormatted = order.createdAt ? new Date(order.createdAt).toLocaleString('fr-FR') : 'Date non disponible';
+                    
+                    ordersHTML += `
+                        <div class="card" style="background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 5px solid #1b4332;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <h3 style="margin: 0; color: #1b4332;">Client : ${order.customerName || 'N/A'}</h3>
+                                <span style="background: #e9f5ed; color: #1b4332; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: bold;">${order.status || 'En attente'}</span>
+                            </div>
+                            <p style="margin: 5px 0;"><strong>Téléphone :</strong> <a href="tel:${order.phone}" style="color: #1b4332;">${order.phone || 'N/A'}</a></p>
+                            <p style="margin: 5px 0;"><strong>Wilaya :</strong> ${order.wilaya || 'N/A'}</p>
+                            <p style="margin: 5px 0;"><strong>Adresse :</strong> ${order.address || 'N/A'}</p>
+                            <p style="margin: 5px 0;"><strong>Mode de paiement :</strong> ${order.paymentMethod || 'N/A'}</p>
+                            <p style="margin: 10px 0 0 0; font-size: 0.8rem; color: #888;">Date : ${dateFormatted}</p>
+                        </div>
+                    `;
+                });
+
+                ordersHTML += `</div>`;
+                ordersContainer.innerHTML = ordersHTML;
+
+            } catch (error) {
+                console.error("Erreur Firebase:", error);
+                ordersContainer.innerHTML = `<div class="card" style="padding: 20px; background: #ffebee; color: #c62828; border-radius: 8px; text-align: center;">Erreur : ${error.message}</div>`;
+            }
+        }
+
+        loadOrders();
+    </script>
+</body>
+</html>
 
