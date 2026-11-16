@@ -22,42 +22,31 @@
                     <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
             </nav>
-            <a href="cart.html" class="cart-btn">🛒 Panier <span id="cart-count">0</span></a>
+            <a href="cart.html" class="cart-btn">Panier <span id="cart-count">0</span></a>
         </div>
     </header>
 
     <section class="section">
-        <div class="container">
-            <h1 class="text-center">Contactez-nous</h1>
-            <p class="text-center subtitle">Une question, un partenariat ou une commande ? N'hésitez pas à nous écrire.</p>
-
-            <div class="grid-2" style="align-items: flex-start;">
-                <div class="card">
-                    <h2>Informations de contact</h2>
-                    <p style="margin: 20px 0;">Nous sommes à votre écoute pour toute information concernant notre charbon écologique à Tlemcen.</p>
-                    <p><strong>✉️ Email :</strong> contact@biobrix-dz.com</p>
-                    <p><strong>📞 Téléphone :</strong> 0563 86 00 08</p>
-                    <p><strong>📍 Adresse :</strong> Tlemcen, Algérie</p>
-                </div>
-
-                <div class="card">
-                    <h2>Envoyez-nous un message</h2>
-                    <form onsubmit="event.preventDefault(); alert('✅ Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.');">
-                        <div style="margin-bottom: 15px;">
-                            <label style="display: block; margin-bottom: 5px; font-weight: 600;">Nom complet</label>
-                            <input type="text" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;" placeholder="Votre nom">
-                        </div>
-                        <div style="margin-bottom: 15px;">
-                            <label style="display: block; margin-bottom: 5px; font-weight: 600;">Email</label>
-                            <input type="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;" placeholder="votre@email.com">
-                        </div>
-                        <div style="margin-bottom: 15px;">
-                            <label style="display: block; margin-bottom: 5px; font-weight: 600;">Message</label>
-                            <textarea rows="4" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;" placeholder="Votre message..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer</button>
-                    </form>
-                </div>
+        <div class="container" style="max-width: 650px;">
+            <h1>Contactez-nous</h1>
+            <p class="subtitle" style="margin-bottom: 20px;">Une question sur nos produits ou notre démarche ? Laissez-nous un message.</p>
+            
+            <div class="card" style="padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <form id="contact-form">
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nom complet</label>
+                        <input type="text" id="contact-name" required placeholder="Votre nom" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Email ou Téléphone</label>
+                        <input type="text" id="contact-email" required placeholder="Votre contact" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Message</label>
+                        <textarea id="contact-message" rows="4" required placeholder="Votre message..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; background: #1b4332; color: white; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer;">Envoyer le message</button>
+                </form>
             </div>
         </div>
     </section>
@@ -81,16 +70,59 @@
             </div>
             <div>
                 <h4>Contact</h4>
-                <p>✉️ contact@biobrix-dz.com</p>
-                <p>📞 0563 86 00 08</p>
-                <p>📍 Tlemcen, Algérie</p>
+                <p>contact@biobrix-dz.com</p>
+                <p>Tlemcen, Algérie</p>
             </div>
         </div>
         <div class="footer-bottom text-center">
             <p>&copy; 2026 BIOBRIX. Tous droits réservés.</p>
         </div>
     </footer>
-    <script src="js/app.js"></script>
+
+    <!-- سكربت حفظ رسائل الاتصال في قاعدة البيانات السحابية -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyB7ZSHcfg-qQJKHLyufhEgBOzyuXVCUP1g",
+          authDomain: "biobrix-project.firebaseapp.com",
+          projectId: "biobrix-project",
+          storageBucket: "biobrix-project.firebasestorage.app",
+          messagingSenderId: "392025113513",
+          appId: "1:392025113513:web:f2b4b84d6efb7195bc7ab8",
+          measurementId: "G-TSE112B3G2"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const name = document.getElementById('contact-name').value;
+                const contactInfo = document.getElementById('contact-email').value;
+                const message = document.getElementById('contact-message').value;
+
+                try {
+                    await addDoc(collection(db, "messages"), {
+                        senderName: name,
+                        contactInfo: contactInfo,
+                        message: message,
+                        createdAt: new Date().toISOString()
+                    });
+
+                    alert("Message envoyé avec succès ! Nous vous contacterons bientôt.");
+                    contactForm.reset();
+                } catch (error) {
+                    console.error("Erreur lors de l'envoi du message: ", error);
+                    alert("Une erreur est survenue, veuillez réessayer.");
+                }
+            });
+        }
+    </script>
 </body>
 </html>
 
